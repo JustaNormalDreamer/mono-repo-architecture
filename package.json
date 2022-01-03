@@ -1,0 +1,24 @@
+{
+  "name": "@techlink/mono-repo",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean",
+    "build": "lerna run build",
+    "start": "yarn kill-ports && lerna run start --stream",
+    "run:admin": "yarn workspace @techlink/ems-admin start",
+    "run:public": "yarn workspace @techlink/ems-public start",
+    "build:ui-components": "lerna run build --scope @techlink/ui-kits",
+    "watch:ui-components": "yarn workspace @techlink/ui-kits start",
+    "lint": "lerna run lint",
+    "format": "lerna run format",
+    "kill-ports": "kill-port --port 4444,5555,3000",
+    "test": "lerna run test --scope {@techlink/ems-admin,@techlink/ems-public}"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
